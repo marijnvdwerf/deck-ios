@@ -13,13 +13,17 @@
 
 @interface MasterViewController ()
 
-@property NSMutableArray *objects;
+@property NSMutableArray<SpeakerDeckPresentation *> *objects;
 @end
 
 @implementation MasterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (!self.objects) {
+        self.objects = [[NSMutableArray alloc] init];
+    }
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -33,7 +37,8 @@
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-            NSLog(@"%@ %@", response, responseObject);
+            [_objects addObjectsFromArray:responseObject];
+            [self.tableView reloadData];
         }
     }];
     [dataTask resume];
@@ -90,8 +95,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
+    cell.textLabel.text = presentation.title;
     return cell;
 }
 
