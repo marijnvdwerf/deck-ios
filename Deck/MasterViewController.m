@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import <AFNetworking.h>
+#import "SpeakderDeckResponseSerialization.h"
 
 @interface MasterViewController ()
 
@@ -18,6 +20,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = [NSURL URLWithString:@"https://speakerdeck.com/p/featured"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    manager.responseSerializer = [[SpeakderDeckResponseSerialization alloc] init];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 

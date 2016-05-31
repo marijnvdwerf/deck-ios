@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		80590DBAD401FE6B14AB3DE9 /* libPods-Deck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 691A37A03D5D5557ED9E7C17 /* libPods-Deck.a */; };
+		BD0B57FC0D4536BC4CD45C74 /* libPods-Deck-DeckTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BADCA44176B1DC7CCF6027 /* libPods-Deck-DeckTests.a */; };
+		C61469DB1CFC3FA1001ABDFF /* SpeakderDeckParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C61469DA1CFC3FA1001ABDFF /* SpeakderDeckParserTests.m */; };
+		C61469E61CFDA0A9001ABDFF /* SpeakerDeckPresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C61469E51CFDA0A9001ABDFF /* SpeakerDeckPresentation.m */; };
+		C61469EB1CFDA708001ABDFF /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = C61469EA1CFDA708001ABDFF /* Resources */; };
 		C61FB7051CF4F856004CE991 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FB7041CF4F856004CE991 /* main.m */; };
 		C61FB7081CF4F856004CE991 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FB7071CF4F856004CE991 /* AppDelegate.m */; };
 		C61FB70B1CF4F856004CE991 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FB70A1CF4F856004CE991 /* MasterViewController.m */; };
@@ -15,11 +19,30 @@
 		C61FB7111CF4F856004CE991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61FB70F1CF4F856004CE991 /* Main.storyboard */; };
 		C61FB7131CF4F856004CE991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61FB7121CF4F856004CE991 /* Assets.xcassets */; };
 		C61FB7161CF4F856004CE991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61FB7141CF4F856004CE991 /* LaunchScreen.storyboard */; };
+		C61FB71F1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C61469DD1CFC3FA1001ABDFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C61FB6F81CF4F856004CE991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C61FB6FF1CF4F856004CE991;
+			remoteInfo = Deck;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3FB1E3EC9FF00E16F1209F0B /* Pods-Deck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck.release.xcconfig"; path = "Pods/Target Support Files/Pods-Deck/Pods-Deck.release.xcconfig"; sourceTree = "<group>"; };
 		691A37A03D5D5557ED9E7C17 /* libPods-Deck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Deck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DAE5DAB55D8452BA9F9A24E /* Pods-Deck-DeckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck-DeckTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deck-DeckTests/Pods-Deck-DeckTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8BADCA44176B1DC7CCF6027 /* libPods-Deck-DeckTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Deck-DeckTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61469D81CFC3FA0001ABDFF /* DeckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61469DA1CFC3FA1001ABDFF /* SpeakderDeckParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeakderDeckParserTests.m; sourceTree = "<group>"; };
+		C61469DC1CFC3FA1001ABDFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C61469E41CFDA0A9001ABDFF /* SpeakerDeckPresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDeckPresentation.h; sourceTree = "<group>"; };
+		C61469E51CFDA0A9001ABDFF /* SpeakerDeckPresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDeckPresentation.m; sourceTree = "<group>"; };
+		C61469EA1CFDA708001ABDFF /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		C61FB7001CF4F856004CE991 /* Deck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61FB7041CF4F856004CE991 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C61FB7061CF4F856004CE991 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,10 +55,21 @@
 		C61FB7121CF4F856004CE991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C61FB7151CF4F856004CE991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C61FB7171CF4F856004CE991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C61FB71D1CF5015B004CE991 /* SpeakderDeckResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakderDeckResponseSerialization.h; sourceTree = "<group>"; };
+		C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakderDeckResponseSerialization.m; sourceTree = "<group>"; };
 		C74F326D975829576ABE13E0 /* Pods-Deck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deck/Pods-Deck.debug.xcconfig"; sourceTree = "<group>"; };
+		F5649081259FDE2FFDE80910 /* Pods-Deck-DeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck-DeckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Deck-DeckTests/Pods-Deck-DeckTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C61469D51CFC3FA0001ABDFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD0B57FC0D4536BC4CD45C74 /* libPods-Deck-DeckTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C61FB6FD1CF4F856004CE991 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,6 +86,8 @@
 			children = (
 				C74F326D975829576ABE13E0 /* Pods-Deck.debug.xcconfig */,
 				3FB1E3EC9FF00E16F1209F0B /* Pods-Deck.release.xcconfig */,
+				9DAE5DAB55D8452BA9F9A24E /* Pods-Deck-DeckTests.debug.xcconfig */,
+				F5649081259FDE2FFDE80910 /* Pods-Deck-DeckTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -60,14 +96,26 @@
 			isa = PBXGroup;
 			children = (
 				691A37A03D5D5557ED9E7C17 /* libPods-Deck.a */,
+				B8BADCA44176B1DC7CCF6027 /* libPods-Deck-DeckTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C61469D91CFC3FA1001ABDFF /* DeckTests */ = {
+			isa = PBXGroup;
+			children = (
+				C61469EA1CFDA708001ABDFF /* Resources */,
+				C61469DA1CFC3FA1001ABDFF /* SpeakderDeckParserTests.m */,
+				C61469DC1CFC3FA1001ABDFF /* Info.plist */,
+			);
+			path = DeckTests;
 			sourceTree = "<group>";
 		};
 		C61FB6F71CF4F856004CE991 = {
 			isa = PBXGroup;
 			children = (
 				C61FB7021CF4F856004CE991 /* Deck */,
+				C61469D91CFC3FA1001ABDFF /* DeckTests */,
 				C61FB7011CF4F856004CE991 /* Products */,
 				1666E50740C23511DA9E7119 /* Pods */,
 				54B54129571C5E3BFCAAD3EA /* Frameworks */,
@@ -78,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C61FB7001CF4F856004CE991 /* Deck.app */,
+				C61469D81CFC3FA0001ABDFF /* DeckTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +145,10 @@
 				C61FB7141CF4F856004CE991 /* LaunchScreen.storyboard */,
 				C61FB7171CF4F856004CE991 /* Info.plist */,
 				C61FB7031CF4F856004CE991 /* Supporting Files */,
+				C61FB71D1CF5015B004CE991 /* SpeakderDeckResponseSerialization.h */,
+				C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */,
+				C61469E41CFDA0A9001ABDFF /* SpeakerDeckPresentation.h */,
+				C61469E51CFDA0A9001ABDFF /* SpeakerDeckPresentation.m */,
 			);
 			path = Deck;
 			sourceTree = "<group>";
@@ -111,6 +164,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C61469D71CFC3FA0001ABDFF /* DeckTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C61469E11CFC3FA1001ABDFF /* Build configuration list for PBXNativeTarget "DeckTests" */;
+			buildPhases = (
+				1B0F44A9A1533B1D8951AF32 /* 📦 Check Pods Manifest.lock */,
+				C61469D41CFC3FA0001ABDFF /* Sources */,
+				C61469D51CFC3FA0001ABDFF /* Frameworks */,
+				C61469D61CFC3FA0001ABDFF /* Resources */,
+				FA9DB1A881C6DFB9E5055EF0 /* 📦 Embed Pods Frameworks */,
+				9EA37F908AAC05C6D7EB019D /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C61469DE1CFC3FA1001ABDFF /* PBXTargetDependency */,
+			);
+			name = DeckTests;
+			productName = DeckTests;
+			productReference = C61469D81CFC3FA0001ABDFF /* DeckTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C61FB6FF1CF4F856004CE991 /* Deck */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C61FB71A1CF4F856004CE991 /* Build configuration list for PBXNativeTarget "Deck" */;
@@ -140,6 +214,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Marijn van der Werf";
 				TargetAttributes = {
+					C61469D71CFC3FA0001ABDFF = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = C61FB6FF1CF4F856004CE991;
+					};
 					C61FB6FF1CF4F856004CE991 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -159,11 +237,20 @@
 			projectRoot = "";
 			targets = (
 				C61FB6FF1CF4F856004CE991 /* Deck */,
+				C61469D71CFC3FA0001ABDFF /* DeckTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C61469D61CFC3FA0001ABDFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C61469EB1CFDA708001ABDFF /* Resources in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C61FB6FE1CF4F856004CE991 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -177,6 +264,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B0F44A9A1533B1D8951AF32 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		48D0A9D6035E17FA39DA51C5 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -222,9 +324,47 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deck/Pods-Deck-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9EA37F908AAC05C6D7EB019D /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deck-DeckTests/Pods-Deck-DeckTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA9DB1A881C6DFB9E5055EF0 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Deck-DeckTests/Pods-Deck-DeckTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C61469D41CFC3FA0001ABDFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C61469DB1CFC3FA1001ABDFF /* SpeakderDeckParserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C61FB6FC1CF4F856004CE991 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,10 +373,20 @@
 				C61FB70B1CF4F856004CE991 /* MasterViewController.m in Sources */,
 				C61FB7051CF4F856004CE991 /* main.m in Sources */,
 				C61FB70E1CF4F856004CE991 /* DetailViewController.m in Sources */,
+				C61FB71F1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m in Sources */,
+				C61469E61CFDA0A9001ABDFF /* SpeakerDeckPresentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C61469DE1CFC3FA1001ABDFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C61FB6FF1CF4F856004CE991 /* Deck */;
+			targetProxy = C61469DD1CFC3FA1001ABDFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C61FB70F1CF4F856004CE991 /* Main.storyboard */ = {
@@ -258,6 +408,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C61469DF1CFC3FA1001ABDFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DAE5DAB55D8452BA9F9A24E /* Pods-Deck-DeckTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DeckTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.marijnvdwerf.DeckTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deck.app/Deck";
+			};
+			name = Debug;
+		};
+		C61469E01CFC3FA1001ABDFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5649081259FDE2FFDE80910 /* Pods-Deck-DeckTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DeckTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.marijnvdwerf.DeckTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deck.app/Deck";
+			};
+			name = Release;
+		};
 		C61FB7181CF4F856004CE991 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +545,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C61469E11CFC3FA1001ABDFF /* Build configuration list for PBXNativeTarget "DeckTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C61469DF1CFC3FA1001ABDFF /* Debug */,
+				C61469E01CFC3FA1001ABDFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C61FB6FB1CF4F856004CE991 /* Build configuration list for PBXProject "Deck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
