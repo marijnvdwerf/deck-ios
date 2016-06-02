@@ -11,6 +11,7 @@ target 'Deck' do
   # Pods for Deck
   pod 'AFNetworking', '~> 3.0'
   pod 'HTMLKit', '~> 0.9'
+  pod 'SDWebImage', '~> 3.7'
 
   target 'DeckTests' do
     shared_pods

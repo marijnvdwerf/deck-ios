@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import <AFNetworking.h>
 #import "SpeakderDeckResponseSerialization.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MasterViewController ()
 
@@ -17,6 +18,8 @@
 @end
 
 @implementation MasterViewController
+
+float _columnWidth;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,12 +41,19 @@
             NSLog(@"Error: %@", error);
         } else {
             [_objects addObjectsFromArray:responseObject];
-            [self.tableView reloadData];
+            [self.collectionView reloadData];
         }
     }];
     [dataTask resume];
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    float screenWidth = [self.view bounds].size.width;
+    _columnWidth = (screenWidth - 1) / 2;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,33 +70,40 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        NSIndexPath *indexPath = [self.collectionView indexPathForSelectedRow];
+        SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        [controller setDetailItem:presentation.title];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
 }
 
-#pragma mark - Table View
+#pragma mark - Collection View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.objects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
 
     SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
-    cell.textLabel.text = presentation.title;
+    
+    UIImageView *imageView = ((UIImageView *)[cell viewWithTag:2]);
+    [imageView sd_setImageWithURL:[presentation thumbnailForSlide:0]];
+    ((UITextView *)[cell viewWithTag:1]).text = presentation.title;
     return cell;
 }
 
+#pragma mark - Collection View Flow Layout
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(_columnWidth, _columnWidth / 4 * 3);
+}
 
 @end

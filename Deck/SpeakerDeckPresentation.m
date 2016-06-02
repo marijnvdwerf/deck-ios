@@ -23,7 +23,7 @@
         self.slideCount = [[element.attributes valueForKey:@"data-slide-count"] intValue];
         self.url = [[NSURL alloc] initWithString:[[element querySelector:@".title a"].attributes valueForKey:@"href"] relativeToURL:[NSURL URLWithString:@"https://speakerdeck.com/"]];
         self.title = [element querySelector:@".title a"].textContent;
-        self._thumbnailURL = [[element querySelector:@"img"].attributes valueForKey:@"src"];
+        self._thumbnailURL =[NSURL URLWithString:[[[element querySelector:@"img"].attributes valueForKey:@"src"] stringByReplacingOccurrencesOfString:@"/thumb_slide_0.jpg" withString:@"/"]];
     }
     
     return self;
@@ -31,7 +31,7 @@
 
 - (NSURL *)thumbnailForSlide: (int) slide
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"https://speakerd.s3.amazonaws.com/presentations/600b86a7a8884e0ea0ae7677381ba0b6/thumb_slide_%d.jpg", slide]];
+    return [[NSURL alloc] initWithString:[NSString stringWithFormat:@"thumb_slide_%d.jpg", slide] relativeToURL:__thumbnailURL];
 }
 
 @end

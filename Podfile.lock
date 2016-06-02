@@ -15,15 +15,20 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - HTMLKit (0.9.1)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - HTMLKit (~> 0.9)
+  - SDWebImage (~> 3.7)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   HTMLKit: b40dde98be95a15526a58a5ac96e05d7c1f5b630
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: 7693c3d6e61034d14ca275170a17950948e326fe
+PODFILE CHECKSUM: 7ba30daeb490a24450fbf6a220a0c425fa84438e
 
 COCOAPODS: 1.0.0
