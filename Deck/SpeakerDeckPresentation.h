@@ -16,6 +16,7 @@
 @property NSURL *url;
 
 - (NSURL *)thumbnailForSlide: (int) slide;
+- (NSURL *)originalImageForSlide: (int) slide;
 
 - (id)initWithHTMLElement:(HTMLElement *)element;
 @end

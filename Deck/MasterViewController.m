@@ -70,10 +70,10 @@ float _columnWidth;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.collectionView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:presentation.title];
+        [controller setPresentation:presentation];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }

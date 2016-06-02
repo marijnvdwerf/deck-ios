@@ -34,4 +34,9 @@
     return [[NSURL alloc] initWithString:[NSString stringWithFormat:@"thumb_slide_%d.jpg", slide] relativeToURL:__thumbnailURL];
 }
 
+- (NSURL *)originalImageForSlide: (int) slide
+{
+    return [[NSURL alloc] initWithString:[NSString stringWithFormat:@"slide_%d.jpg", slide] relativeToURL:__thumbnailURL];
+}
+
 @end

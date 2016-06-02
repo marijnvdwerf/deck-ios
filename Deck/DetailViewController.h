@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SpeakerDeckPresentation.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) SpeakerDeckPresentation *presentation;
+@property (strong, nonatomic) UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *publishedLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @end
 
