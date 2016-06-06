@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) SpeakerDeckPresentation *presentation;
 @property (strong, nonatomic) UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *slideWidthPlaceholderView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *publishedLabel;

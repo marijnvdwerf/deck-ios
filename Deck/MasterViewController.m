@@ -45,8 +45,6 @@ float _columnWidth;
         }
     }];
     [dataTask resume];
-
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -72,10 +70,8 @@ float _columnWidth;
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
         [controller setPresentation:presentation];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
 }
 

@@ -9,7 +9,7 @@
 #import "DetailViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface DetailViewController ()
+@interface DetailViewController () <UICollectionViewDelegateFlowLayout>
 
 @end
 
@@ -37,13 +37,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+}
+
+- (void)viewDidLayoutSubviews {
+    float inset = (self.view.bounds.size.width - self.titleLabel.bounds.size.width) / 2;
+    self.descriptionTextView.textContainerInset = UIEdgeInsetsMake(0, inset, 0, inset);
+    [self.descriptionTextView setNeedsLayout];
     
-    [self.descriptionTextView setTextContainerInset:UIEdgeInsetsMake(0, 16, 0, 16)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
 #pragma mark - Collection View Datasource
@@ -64,10 +73,28 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"presentationDetailSlide" forIndexPath:indexPath];
     
     UIImageView *imageView = ((UIImageView *)[cell viewWithTag:2]);
-    NSURL *slideURL = [self.presentation originalImageForSlide:indexPath.item];
+    NSURL *slideURL = [self.presentation thumbnailForSlide:indexPath.item];
     [imageView sd_setImageWithURL:slideURL];
     
     return cell;
+}
+
+#pragma mark - Collection View Delegate Flow Layout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.slideWidthPlaceholderView.bounds.size.width, self.slideWidthPlaceholderView.bounds.size.width / 4 * 3);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    
+    float insets = (self.view.bounds.size.width - self.slideWidthPlaceholderView.bounds.size.width) / 2;
+    return UIEdgeInsetsMake(0, insets, 0, insets);
+}
+
+#pragma mark - Scroll View Delegate
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    //targetContentOffset->x = 80;
 }
 
 @end
