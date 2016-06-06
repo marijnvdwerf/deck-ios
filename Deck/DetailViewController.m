@@ -36,14 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    CGFloat lineFragmentPadding = self.descriptionTextView.textContainer.lineFragmentPadding;
+    self.descriptionTextView.textContainerInset = UIEdgeInsetsMake(0, 5 - lineFragmentPadding, 0, 5 - lineFragmentPadding);
     [self configureView];
-}
-
-- (void)viewDidLayoutSubviews {
-    float inset = (self.view.bounds.size.width - self.titleLabel.bounds.size.width) / 2;
-    self.descriptionTextView.textContainerInset = UIEdgeInsetsMake(0, inset, 0, inset);
-    [self.descriptionTextView setNeedsLayout];
-    
 }
 
 - (void)didReceiveMemoryWarning {
