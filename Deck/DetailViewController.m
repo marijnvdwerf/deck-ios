@@ -31,6 +31,10 @@
     if (self.presentation) {
         self.titleLabel.text = self.presentation.title;
     }
+    
+    self.navigationBar.shadowImage = [UIImage alloc];
+    [self.navigationBar setBackgroundImage:[UIImage alloc] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.translucent = YES;
 }
 
 - (void)viewDidLoad {
@@ -101,4 +105,7 @@
     targetContentOffset->x = roundedSlide * slideWidth;
 }
 
+- (IBAction)doneAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
