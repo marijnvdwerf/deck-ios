@@ -20,6 +20,7 @@
 		C61FB7131CF4F856004CE991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61FB7121CF4F856004CE991 /* Assets.xcassets */; };
 		C61FB7161CF4F856004CE991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61FB7141CF4F856004CE991 /* LaunchScreen.storyboard */; };
 		C61FB71F1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */; };
+		C67836451D070B3600BC47DA /* HairlineBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67836441D070B3600BC47DA /* HairlineBorderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		C61FB7171CF4F856004CE991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C61FB71D1CF5015B004CE991 /* SpeakderDeckResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakderDeckResponseSerialization.h; sourceTree = "<group>"; };
 		C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakderDeckResponseSerialization.m; sourceTree = "<group>"; };
+		C67836431D070B3600BC47DA /* HairlineBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HairlineBorderView.h; sourceTree = "<group>"; };
+		C67836441D070B3600BC47DA /* HairlineBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HairlineBorderView.m; sourceTree = "<group>"; };
 		C74F326D975829576ABE13E0 /* Pods-Deck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deck/Pods-Deck.debug.xcconfig"; sourceTree = "<group>"; };
 		F5649081259FDE2FFDE80910 /* Pods-Deck-DeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck-DeckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Deck-DeckTests/Pods-Deck-DeckTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +152,8 @@
 				C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */,
 				C61469E41CFDA0A9001ABDFF /* SpeakerDeckPresentation.h */,
 				C61469E51CFDA0A9001ABDFF /* SpeakerDeckPresentation.m */,
+				C67836431D070B3600BC47DA /* HairlineBorderView.h */,
+				C67836441D070B3600BC47DA /* HairlineBorderView.m */,
 			);
 			path = Deck;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				C61FB70E1CF4F856004CE991 /* DetailViewController.m in Sources */,
 				C61FB71F1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m in Sources */,
 				C61469E61CFDA0A9001ABDFF /* SpeakerDeckPresentation.m in Sources */,
+				C67836451D070B3600BC47DA /* HairlineBorderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

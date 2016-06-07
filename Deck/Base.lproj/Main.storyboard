@@ -83,17 +83,24 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="296" height="214"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XY6-XZ-cEf">
+                                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XY6-XZ-cEf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="296" height="214"/>
                                                                 </imageView>
+                                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giC-8G-xF7" customClass="HairlineBorderView">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="214"/>
+                                                                </view>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <color key="backgroundColor" red="0.4796158969" green="0.73019099239999996" blue="0.22740326820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.070578239858150482" green="0.070594854652881622" blue="0.070573009550571442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="XY6-XZ-cEf" firstAttribute="top" secondItem="VOo-aE-k6a" secondAttribute="top" id="6sV-Uy-oMo"/>
+                                                            <constraint firstItem="giC-8G-xF7" firstAttribute="top" secondItem="VOo-aE-k6a" secondAttribute="top" id="Bjg-Le-j1S"/>
+                                                            <constraint firstItem="giC-8G-xF7" firstAttribute="leading" secondItem="VOo-aE-k6a" secondAttribute="leading" id="DB5-BP-909"/>
                                                             <constraint firstAttribute="trailing" secondItem="XY6-XZ-cEf" secondAttribute="trailing" id="bmA-Um-qJi"/>
                                                             <constraint firstItem="XY6-XZ-cEf" firstAttribute="leading" secondItem="VOo-aE-k6a" secondAttribute="leading" id="j4O-a8-4pG"/>
+                                                            <constraint firstItem="giC-8G-xF7" firstAttribute="trailing" secondItem="VOo-aE-k6a" secondAttribute="trailing" id="kO6-dT-xaP"/>
+                                                            <constraint firstItem="giC-8G-xF7" firstAttribute="bottom" secondItem="VOo-aE-k6a" secondAttribute="bottom" id="lYV-EV-Wav"/>
                                                             <constraint firstAttribute="bottom" secondItem="XY6-XZ-cEf" secondAttribute="bottom" id="wQC-ir-387"/>
                                                         </constraints>
                                                     </collectionViewCell>
