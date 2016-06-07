@@ -93,7 +93,12 @@
 #pragma mark - Scroll View Delegate
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    //targetContentOffset->x = 80;
+    float slideWidth = self.slideWidthPlaceholderView.bounds.size.width + 4;
+    float targetSlide = targetContentOffset->x / slideWidth;
+    int roundedSlide = round(targetSlide);
+    NSLog(@"%f -> %f -> %d", targetContentOffset->x, targetSlide, roundedSlide);
+    
+    targetContentOffset->x = roundedSlide * slideWidth;
 }
 
 @end
