@@ -76,7 +76,7 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"presentationDetailSlide" forIndexPath:indexPath];
     
     UIImageView *imageView = ((UIImageView *)[cell viewWithTag:2]);
-    NSURL *slideURL = [self.presentation thumbnailForSlide:indexPath.item];
+    NSURL *slideURL = [self.presentation originalImageForSlide:indexPath.item];
     [imageView sd_setImageWithURL:slideURL];
     
     return cell;
@@ -85,7 +85,7 @@
 #pragma mark - Collection View Delegate Flow Layout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.slideWidthPlaceholderView.bounds.size.width, self.slideWidthPlaceholderView.bounds.size.width / 4 * 3);
+    return CGSizeMake(self.slideWidthPlaceholderView.bounds.size.width, self.slideWidthPlaceholderView.bounds.size.height);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

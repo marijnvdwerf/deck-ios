@@ -43,13 +43,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMX-4v-uwE" userLabel="SlideSizePlaceholder">
-                                <rect key="frame" x="11" y="367" width="578" height="433"/>
+                                <rect key="frame" x="11" y="475" width="578" height="325"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="SMX-4v-uwE" secondAttribute="height" multiplier="4:3" id="Yqh-bg-4nu"/>
+                                    <constraint firstAttribute="width" secondItem="SMX-4v-uwE" secondAttribute="height" multiplier="16:9" id="Yqh-bg-4nu"/>
                                 </constraints>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hCn-KF-3kY">
-                                <rect key="frame" x="278" y="0.0" width="44" height="367"/>
+                                <rect key="frame" x="278" y="0.0" width="44" height="475"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="uaW-90-tFU"/>
                                 </constraints>
@@ -58,16 +58,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JK2-hK-ooI">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="733"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="666"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COC-Vo-ap9">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="181"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-Gp-sTc">
-                                                <rect key="frame" x="0.0" y="140" width="600" height="433"/>
+                                                <rect key="frame" x="0.0" y="181" width="600" height="325"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="4" id="Hdq-PT-WRt">
                                                     <size key="itemSize" width="296" height="214"/>
@@ -77,7 +77,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="presentationDetailSlide" id="VOo-aE-k6a">
-                                                        <rect key="frame" x="12" y="106" width="296" height="214"/>
+                                                        <rect key="frame" x="12" y="52" width="296" height="214"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="296" height="214"/>
@@ -111,7 +111,7 @@
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a95-9b-i7E">
-                                                <rect key="frame" x="0.0" y="573" width="600" height="81"/>
+                                                <rect key="frame" x="0.0" y="506" width="600" height="81"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sq2-DK-Ib4">
                                                         <rect key="frame" x="15" y="0.0" width="570" height="73"/>
@@ -155,7 +155,7 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln1-ne-X2e">
-                                                <rect key="frame" x="0.0" y="654" width="600" height="79"/>
+                                                <rect key="frame" x="0.0" y="587" width="600" height="79"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-W0-fAV">
                                                         <rect key="frame" x="10" y="0.0" width="580" height="79"/>
