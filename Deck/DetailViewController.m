@@ -100,7 +100,6 @@
     float slideWidth = self.slideWidthPlaceholderView.bounds.size.width + 4;
     float targetSlide = targetContentOffset->x / slideWidth;
     int roundedSlide = round(targetSlide);
-    NSLog(@"%f -> %f -> %d", targetContentOffset->x, targetSlide, roundedSlide);
     
     targetContentOffset->x = roundedSlide * slideWidth;
 }
