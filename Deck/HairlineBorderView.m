@@ -11,16 +11,12 @@
 @implementation HairlineBorderView
 
 - (void)drawRect:(CGRect)rect {
-    CGFloat xMin = CGRectGetMinX(rect);
-    CGFloat xMax = CGRectGetMaxX(rect);
-    
-    CGFloat yMin = CGRectGetMinY(rect);
-    CGFloat yMax = CGRectGetMaxY(rect);
+    float pixelSize = 1 / self.window.screen.scale;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     // Can't use [UIColor whiteColor] because it uses the wrong colour space.
     CGContextSetStrokeColor(context, CGColorGetComponents([UIColor colorWithRed:1 green:1 blue:1 alpha:0.18].CGColor));
-    CGContextStrokeRectWithWidth(context, rect, 1);
+    CGContextStrokeRectWithWidth(context, rect, pixelSize * 2);
 }
 
 @end
