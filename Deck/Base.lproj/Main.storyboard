@@ -58,16 +58,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JK2-hK-ooI">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="676"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COC-Vo-ap9">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="181"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="182"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                                 </accessibility>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fXK-Gp-sTc">
-                                                <rect key="frame" x="0.0" y="181" width="600" height="325"/>
+                                                <rect key="frame" x="0.0" y="182" width="600" height="334"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="4" id="Hdq-PT-WRt">
                                                     <size key="itemSize" width="296" height="214"/>
@@ -77,7 +77,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="presentationDetailSlide" id="VOo-aE-k6a">
-                                                        <rect key="frame" x="12" y="52" width="296" height="214"/>
+                                                        <rect key="frame" x="12" y="56" width="296" height="214"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="296" height="214"/>
@@ -111,7 +111,7 @@
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a95-9b-i7E">
-                                                <rect key="frame" x="0.0" y="506" width="600" height="81"/>
+                                                <rect key="frame" x="0.0" y="516" width="600" height="81"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sq2-DK-Ib4">
                                                         <rect key="frame" x="15" y="0.0" width="570" height="73"/>
@@ -155,7 +155,7 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln1-ne-X2e">
-                                                <rect key="frame" x="0.0" y="587" width="600" height="79"/>
+                                                <rect key="frame" x="0.0" y="597" width="600" height="79"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-W0-fAV">
                                                         <rect key="frame" x="10" y="0.0" width="580" height="79"/>
@@ -213,7 +213,7 @@
                             <constraint firstItem="PRK-JV-khm" firstAttribute="width" secondItem="URm-58-RGC" secondAttribute="width" constant="30" id="FCW-fD-4LK"/>
                             <constraint firstItem="URm-58-RGC" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="HJ7-bo-adJ"/>
                             <constraint firstAttribute="bottom" secondItem="SMX-4v-uwE" secondAttribute="bottom" id="WHD-Z5-LTh"/>
-                            <constraint firstItem="fXK-Gp-sTc" firstAttribute="height" secondItem="SMX-4v-uwE" secondAttribute="height" id="Zkf-CL-2LQ"/>
+                            <constraint firstItem="fXK-Gp-sTc" firstAttribute="height" secondItem="SMX-4v-uwE" secondAttribute="height" constant="9" id="Zkf-CL-2LQ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="URm-58-RGC" secondAttribute="bottom" id="cny-ZB-ZJL"/>
                             <constraint firstItem="COC-Vo-ap9" firstAttribute="height" secondItem="hCn-KF-3kY" secondAttribute="height" multiplier="0.381966" id="f2I-D7-5Jn"/>
                             <constraint firstItem="SMX-4v-uwE" firstAttribute="centerX" secondItem="URm-58-RGC" secondAttribute="centerX" id="fZo-Ym-AJ9"/>

@@ -89,9 +89,8 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    
     float insets = (self.view.bounds.size.width - self.slideWidthPlaceholderView.bounds.size.width) / 2;
-    return UIEdgeInsetsMake(0, insets, 0, insets);
+    return UIEdgeInsetsMake(0, insets, 9, insets);
 }
 
 #pragma mark - Scroll View Delegate
