@@ -15,6 +15,7 @@
 @interface MasterViewController ()
 
 @property NSMutableArray<SpeakerDeckPresentation *> *objects;
+@property NSIndexPath *selectedItem;
 @end
 
 @implementation MasterViewController
@@ -68,7 +69,7 @@ float _columnWidth;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
         SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
         [controller setPresentation:presentation];
@@ -87,6 +88,12 @@ float _columnWidth;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    if([indexPath isEqual:self.selectedItem]) {
+        [cell viewWithTag:3].backgroundColor = [UIColor redColor];
+    } else {
+        [cell viewWithTag:3].backgroundColor = [UIColor clearColor];
+    }
 
     SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
     
@@ -94,6 +101,51 @@ float _columnWidth;
     [imageView sd_setImageWithURL:[presentation thumbnailForSlide:0]];
     ((UITextView *)[cell viewWithTag:1]).text = presentation.title;
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // Remove selection from previous cell
+    if (self.selectedItem != nil) {
+        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:self.selectedItem];
+        if (cell != nil) {
+            [cell viewWithTag:3].backgroundColor = [UIColor clearColor];
+        }
+    }
+    
+    self.selectedItem = indexPath;
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    if (cell == nil) {
+        NSLog(@"Cell was nil");
+    } else {
+        [cell viewWithTag:3].backgroundColor = [UIColor redColor];
+    }
+    
+    SpeakerDeckPresentation *presentation = self.objects[indexPath.item];
+    if (presentation.aspectRatio != nil) {
+        [self performSegueWithIdentifier:@"showDetail" sender:self.selectedItem];
+    }
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:presentation.url];
+    
+    manager.responseSerializer = [[SpeakderDeckResponseSerialization alloc] init];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            return;
+        }
+        
+        SpeakerDeckPresentation *responsePresentation = (SpeakerDeckPresentation *)responseObject;
+        SpeakerDeckPresentation *selectedPresentation = self.objects[indexPath.item];
+        selectedPresentation.aspectRatio = responsePresentation.aspectRatio;
+        selectedPresentation.descriptionText = responsePresentation.descriptionText;
+        [self performSegueWithIdentifier:@"showDetail" sender:self.selectedItem];
+    }];
+    [dataTask resume];
+    
 }
 
 #pragma mark - Collection View Flow Layout

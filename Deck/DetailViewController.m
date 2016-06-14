@@ -30,6 +30,18 @@
     // Update the user interface for the detail item.
     if (self.presentation) {
         self.titleLabel.text = self.presentation.title;
+        
+        self.descriptionTextView.text = self.presentation.descriptionText;
+        self.descriptionTextView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        self.descriptionTextView.textColor = [UIColor whiteColor];
+        
+        NSLayoutConstraint *originalConstraint = self.slideAspectRatioConstraint;
+        NSLayoutConstraint *aspectRatioConstraint = [NSLayoutConstraint constraintWithItem:originalConstraint.firstItem attribute:originalConstraint.firstAttribute relatedBy:originalConstraint.relation toItem:originalConstraint.secondItem attribute:originalConstraint.secondAttribute multiplier:self.presentation.aspectRatio.floatValue constant:originalConstraint.constant];
+        UIView *view = originalConstraint.firstItem;
+        [view removeConstraint:originalConstraint];
+        self.slideAspectRatioConstraint = aspectRatioConstraint;
+        [view addConstraint:aspectRatioConstraint];
+        [view updateConstraintsIfNeeded];
     }
     
     self.navigationBar.shadowImage = [UIImage alloc];

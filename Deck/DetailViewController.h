@@ -12,6 +12,7 @@
 @interface DetailViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) SpeakerDeckPresentation *presentation;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *slideAspectRatioConstraint;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *slideWidthPlaceholderView;

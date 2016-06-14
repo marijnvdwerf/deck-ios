@@ -157,13 +157,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln1-ne-X2e">
                                                 <rect key="frame" x="0.0" y="597" width="600" height="79"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-W0-fAV">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-W0-fAV">
                                                         <rect key="frame" x="10" y="0.0" width="580" height="79"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.56724077463150024" green="0.82254868745803833" blue="0.66297256946563721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <string key="text">"Web" design has changed. Now is the time to stop and rethink our best practices. Which are the new, better practices and tools that will help us keep our sanity while scaling big projects?</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                     </textView>
                                                 </subviews>
                                                 <constraints>
@@ -233,6 +235,7 @@
                         <outlet property="descriptionTextView" destination="JGG-W0-fAV" id="CXU-z1-aSD"/>
                         <outlet property="navigationBar" destination="PRK-JV-khm" id="xGR-VK-YR4"/>
                         <outlet property="publishedLabel" destination="4B2-P0-0yQ" id="8bP-Qz-5Cp"/>
+                        <outlet property="slideAspectRatioConstraint" destination="Yqh-bg-4nu" id="DnS-0x-zj1"/>
                         <outlet property="slideWidthPlaceholderView" destination="SMX-4v-uwE" id="shx-BG-BLc"/>
                         <outlet property="titleLabel" destination="2Mj-vk-ZfA" id="YVr-6b-avM"/>
                     </connections>
@@ -271,20 +274,30 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="180"/>
                                             </variation>
                                         </imageView>
+                                        <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stb-sd-a1c">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="I7H-TJ-zRl">
+                                            <rect key="frame" x="102" y="101" width="37" height="37"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Zer-JH-2Cv" secondAttribute="trailing" id="2Ea-zM-b0E"/>
+                                    <constraint firstItem="stb-sd-a1c" firstAttribute="width" secondItem="kNq-d6-34I" secondAttribute="width" id="5j3-PB-76c"/>
+                                    <constraint firstItem="I7H-TJ-zRl" firstAttribute="centerX" secondItem="kNq-d6-34I" secondAttribute="centerX" id="8uG-qP-rmr"/>
                                     <constraint firstAttribute="top" secondItem="Zer-JH-2Cv" secondAttribute="top" id="K67-5v-wez"/>
+                                    <constraint firstItem="stb-sd-a1c" firstAttribute="centerY" secondItem="kNq-d6-34I" secondAttribute="centerY" id="VqB-yX-520"/>
                                     <constraint firstAttribute="leading" secondItem="Zer-JH-2Cv" secondAttribute="leading" id="eaj-tv-HeY"/>
+                                    <constraint firstItem="I7H-TJ-zRl" firstAttribute="centerY" secondItem="kNq-d6-34I" secondAttribute="centerY" id="hYt-Vu-NV0"/>
                                     <constraint firstAttribute="bottom" secondItem="Zer-JH-2Cv" secondAttribute="bottom" id="iqj-6V-PZ8"/>
+                                    <constraint firstItem="stb-sd-a1c" firstAttribute="height" secondItem="kNq-d6-34I" secondAttribute="height" id="ish-qn-xN9"/>
+                                    <constraint firstItem="stb-sd-a1c" firstAttribute="centerX" secondItem="kNq-d6-34I" secondAttribute="centerX" id="jaw-Z9-ewa"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                 <size key="customSize" width="240" height="240"/>
-                                <connections>
-                                    <segue destination="JEX-9P-axG" kind="showDetail" identifier="showDetail" id="TeP-6W-WDX"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -293,6 +306,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="c3H-1Q-IEF"/>
+                    <connections>
+                        <segue destination="JEX-9P-axG" kind="showDetail" identifier="showDetail" id="iaL-qS-ENE"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zio-7X-OvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,6 +331,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TeP-6W-WDX"/>
+        <segue reference="iaL-qS-ENE"/>
     </inferredMetricsTieBreakers>
 </document>
