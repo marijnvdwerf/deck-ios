@@ -13,7 +13,9 @@
 @property NSString *identifier;
 @property int slideCount;
 @property NSString *title;
+@property NSString *descriptionText;
 @property NSURL *url;
+@property NSNumber *aspectRatio;
 
 - (NSURL *)thumbnailForSlide: (int) slide;
 - (NSURL *)originalImageForSlide: (int) slide;

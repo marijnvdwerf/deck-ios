@@ -33,7 +33,7 @@ SpeakderDeckResponseSerialization *serializer;
     NSString *path = [bundle pathForResource:@"Resources/featured" ofType:@"html"];
     NSData *htmlData = [NSData dataWithContentsOfFile:path];
     
-    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://speakerdeck.com/p/featured"] MIMEType:@"ttext/html; charset=utf-8" expectedContentLength:31657 textEncodingName:@"utf-8"];
+    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://speakerdeck.com/p/featured"] MIMEType:@"text/html; charset=utf-8" expectedContentLength:31657 textEncodingName:@"utf-8"];
     
     NSObject *data = [serializer responseObjectForResponse:response data:htmlData error:nil];
     
@@ -57,12 +57,43 @@ SpeakderDeckResponseSerialization *serializer;
     NSString *path = [bundle pathForResource:@"Resources/design" ofType:@"html"];
     NSData *htmlData = [NSData dataWithContentsOfFile:path];
     
-    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://speakerdeck.com/p/design"] MIMEType:@"ttext/html; charset=utf-8" expectedContentLength:31657 textEncodingName:@"utf-8"];
+    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://speakerdeck.com/p/design"] MIMEType:@"text/html; charset=utf-8" expectedContentLength:31657 textEncodingName:@"utf-8"];
     
     NSArray<SpeakerDeckPresentation *> *presentations = (NSArray *)[serializer responseObjectForResponse:response data:htmlData error:nil];
 
     XCTAssertTrue([presentations[0].title isEqualToString:@"À la poursuite de l'utile - Design & Human - Geoffrey Dorne"]);
     XCTAssertTrue([presentations[3].title isEqualToString:@"制作側とユーザーの温度差、そしてペルソナのズレ-プロゲーマーと高校生から学んだ例-"]);
+}
+
+#define NSParagraphSeparatorCharacter @"\u2029"
+#define NSLineSeparatorCharacter      @"\u2028"
+
+- (void)testDetailPageParsing {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *path = [bundle pathForResource:@"Resources/raster-shaders-on-commodore-64" ofType:@"html"];
+    NSData *htmlData = [NSData dataWithContentsOfFile:path];
+    
+    NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://speakerdeck.com/mehowte/raster-shaders-on-commodore-64"] MIMEType:@"text/html; charset=utf-8" expectedContentLength:31657 textEncodingName:@"utf-8"];
+    
+    NSObject *data = [serializer responseObjectForResponse:response data:htmlData error:nil];
+    
+    XCTAssertTrue([data isKindOfClass:[SpeakerDeckPresentation class]]);
+    SpeakerDeckPresentation *presentation = (SpeakerDeckPresentation *)data;
+    
+    XCTAssertTrue([presentation.identifier isEqualToString:@"0d8bcfaa7d1f41aa89acba64b08c1066"]);
+    XCTAssertTrue([presentation.aspectRatio isEqualToNumber:[NSNumber numberWithFloat:1.33333333333333]]);
+    XCTAssertTrue([presentation.title isEqualToString:@"'Raster Shaders' on Commodore 64"]);
+                   
+    NSArray<NSString *> *description = @[
+        @"Video cards can execute small programs whenever a pixel is displayed on screen.",
+        NSLineSeparatorCharacter,
+        @"Commodore 64 can execute small programs whenever a raster line is displayed on TV.",
+        NSParagraphSeparatorCharacter,
+        @"Pixel shaders can be used to create realistic lighting, special effects and even compute physics!",
+        NSLineSeparatorCharacter,
+        @"‘Raster shaders’ can be used to split screen, display more sprites and even play sound!"
+    ];
+    XCTAssertTrue([presentation.descriptionText isEqualToString:[description componentsJoinedByString:@""]]);
 }
 
 - (void)testPerformanceExample {
