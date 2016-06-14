@@ -82,7 +82,8 @@
             }
             
             NSLog(@"Unknown element");
-            assert(false);
+            [paragraph appendString:node.textContent];
+            //assert(false);
         }];
         
         [paragraphs addObject:[paragraph stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
