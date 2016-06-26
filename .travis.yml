@@ -1,0 +1,6 @@
+language: objective-c
+osx_image: xcode7.3
+xcode_workspace: Deck.xcworkspace
+xcode_scheme: Deck
+script:
+  - xcodebuild -workspace Deck.xcworkspace -scheme Deck -sdk iphonesimulator9.3 CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty
