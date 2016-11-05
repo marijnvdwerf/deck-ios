@@ -79,6 +79,11 @@
                     [paragraph appendString:@"\u2028"];
                     return;
                 }
+                if ([element.tagName isEqualToStringIgnoringCase:@"a"]) {
+                    // TODO: Check for nested elements
+                    [paragraph appendString:element.textContent];
+                    return;
+                }
             }
             
             NSLog(@"Unknown element");
