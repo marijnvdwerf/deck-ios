@@ -21,6 +21,7 @@
 @implementation MasterViewController
 
 float _columnWidth;
+float _gutter = 2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,7 +53,7 @@ float _columnWidth;
     [super viewDidAppear:animated];
     
     float screenWidth = [self.view bounds].size.width;
-    _columnWidth = (screenWidth - 1) / 2;
+    _columnWidth = (screenWidth - _gutter) / 2;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
