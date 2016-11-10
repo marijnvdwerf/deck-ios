@@ -54,9 +54,24 @@
     HTMLElement *embedElement = [document querySelector:@".speakerdeck-embed"];
     presentation.aspectRatio = [NSNumber numberWithFloat:[[embedElement.attributes valueForKey:@"data-ratio"] floatValue]];
     presentation.identifier = [embedElement.attributes valueForKey:@"data-id"];
-    
+
     HTMLElement *talkDetailsElement = [document querySelector:@"#talk-details"];
     presentation.title = [talkDetailsElement querySelector:@"h1"].textContent;
+    presentation.categoryName = [talkDetailsElement querySelector:@"p mark a"].textContent;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
+    [formatter setDateFormat:@"MMMM dd, yyyy"];
+
+    NSString *dateString = [talkDetailsElement querySelector:@"p mark:nth-child(1)"].textContent;
+    presentation.publishDate = [formatter dateFromString:dateString];
+
+    HTMLElement *speakerProfileLink = [document querySelector:@".presenter h2 a"];
+    presentation.speakerName = speakerProfileLink.textContent;
+
+    NSString *speakerURL = [speakerProfileLink.attributes valueForKey:@"href"];
+    presentation.speakerURL = [[NSURL alloc] initWithString:speakerURL relativeToURL:[NSURL URLWithString:@"https://speakerdeck.com/"]];
     
     HTMLElement *descriptionElement = [talkDetailsElement querySelector:@".description"];
     NSMutableArray<NSString *> *paragraphs = [[NSMutableArray alloc] initWithCapacity:descriptionElement.childElementsCount];

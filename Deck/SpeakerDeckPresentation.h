@@ -16,6 +16,10 @@
 @property NSString *descriptionText;
 @property NSURL *url;
 @property NSNumber *aspectRatio;
+@property NSString *speakerName;
+@property NSURL *speakerURL;
+@property NSString *categoryName;
+@property NSDate *publishDate;
 
 - (NSURL *)thumbnailForSlide: (int) slide;
 - (NSURL *)originalImageForSlide: (int) slide;

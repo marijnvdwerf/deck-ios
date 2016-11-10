@@ -94,6 +94,11 @@ SpeakderDeckResponseSerialization *serializer;
         @"‘Raster shaders’ can be used to split screen, display more sprites and even play sound!"
     ];
     XCTAssertTrue([presentation.descriptionText isEqualToString:[description componentsJoinedByString:@""]]);
+    
+    XCTAssertTrue([presentation.speakerName isEqualToString:@"Michał Taszycki"]);
+    XCTAssertTrue([presentation.speakerURL.absoluteString isEqualToString:@"https://speakerdeck.com/mehowte"]);
+    
+    XCTAssertTrue([presentation.categoryName isEqualToString:@"Programming"]);
 }
 
 - (void)testDetailPageParsing2 {
@@ -120,6 +125,11 @@ SpeakderDeckResponseSerialization *serializer;
         @"We also look at PatternPack (http://patternpack.org/), an open source tool for designing and building your interface, and then sharing the code. For more on getting started with PatternPack, check out the guides and resources (https://github.com/patternpack/patternpack/blob/master/docs/docs.md)"
     ];
     XCTAssertTrue([presentation.descriptionText isEqualToString:[description componentsJoinedByString:@""]]);
+    
+    XCTAssertTrue([presentation.speakerName isEqualToString:@"Marcelo Somers"]);
+    XCTAssertTrue([presentation.speakerURL.absoluteString isEqualToString:@"https://speakerdeck.com/marcelosomers"]);
+    
+    XCTAssertTrue([presentation.categoryName isEqualToString:@"Design"]);
 }
 
 - (void)testPerformanceExample {
