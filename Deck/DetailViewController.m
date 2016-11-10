@@ -35,13 +35,13 @@
         self.descriptionTextView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         self.descriptionTextView.textColor = [UIColor whiteColor];
         
-        NSLayoutConstraint *originalConstraint = self.slideAspectRatioConstraint;
-        NSLayoutConstraint *aspectRatioConstraint = [NSLayoutConstraint constraintWithItem:originalConstraint.firstItem attribute:originalConstraint.firstAttribute relatedBy:originalConstraint.relation toItem:originalConstraint.secondItem attribute:originalConstraint.secondAttribute multiplier:self.presentation.aspectRatio.floatValue constant:originalConstraint.constant];
-        UIView *view = originalConstraint.firstItem;
-        [view removeConstraint:originalConstraint];
-        self.slideAspectRatioConstraint = aspectRatioConstraint;
-        [view addConstraint:aspectRatioConstraint];
-        [view updateConstraintsIfNeeded];
+        
+        [_slideWidthPlaceholderView removeConstraint:_slideAspectRatioConstraint];
+        
+        _slideAspectRatioConstraint = [NSLayoutConstraint constraintWithItem:_slideWidthPlaceholderView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_slideWidthPlaceholderView attribute:NSLayoutAttributeHeight multiplier:self.presentation.aspectRatio.floatValue constant:0];
+        [_slideWidthPlaceholderView addConstraint:_slideAspectRatioConstraint];
+        [_slideWidthPlaceholderView updateConstraintsIfNeeded];
+        [self updateViewConstraints];
     }
     
     self.navigationBar.shadowImage = [UIImage alloc];
@@ -102,6 +102,8 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     float insets = (self.view.bounds.size.width - self.slideWidthPlaceholderView.bounds.size.width) / 2;
+    
+    collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, insets, 0, insets);
     return UIEdgeInsetsMake(0, insets, 9, insets);
 }
 
