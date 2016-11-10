@@ -109,6 +109,16 @@ float _gutter = 2;
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    PresentationCell *cell = (PresentationCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.overlayView.hidden = NO;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    PresentationCell *cell = (PresentationCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.overlayView.hidden = YES;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     SpeakerDeckPresentation *presentation = self.objects[indexPath.item];
     if (presentation.aspectRatio != nil) {
