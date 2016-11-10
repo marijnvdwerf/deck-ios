@@ -31,6 +31,14 @@
     if (self.presentation) {
         self.titleLabel.text = self.presentation.title;
         
+        self.authorLabel.text = self.presentation.speakerName;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+        dateFormatter.timeStyle = NSDateFormatterNoStyle;
+        NSString *date = [dateFormatter stringFromDate:self.presentation.publishDate];
+        self.publishedLabel.text = [NSString stringWithFormat:@"Published %@ in %@", date, self.presentation.categoryName];
+        
         self.descriptionTextView.text = self.presentation.descriptionText;
         self.descriptionTextView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         self.descriptionTextView.textColor = [UIColor whiteColor];

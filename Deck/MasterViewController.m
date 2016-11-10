@@ -24,6 +24,7 @@
 float _columnWidth;
 float _rowHeight;
 float _gutter = 2;
+NSString *selectedIdentifier;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -123,6 +124,7 @@ float _gutter = 2;
     SpeakerDeckPresentation *presentation = self.objects[indexPath.item];
     if (presentation.aspectRatio != nil) {
         [self performSegueWithIdentifier:@"showDetail" sender:indexPath];
+        return;
     }
 
     // Remove selection from previous cell
@@ -138,6 +140,8 @@ float _gutter = 2;
     if (cell != nil) {
         cell.overlayView.hidden = NO;
     }
+    
+    selectedIdentifier = presentation.identifier;
 
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -156,7 +160,19 @@ float _gutter = 2;
         SpeakerDeckPresentation *selectedPresentation = self.objects[indexPath.item];
         selectedPresentation.aspectRatio = responsePresentation.aspectRatio;
         selectedPresentation.descriptionText = responsePresentation.descriptionText;
-        [self performSegueWithIdentifier:@"showDetail" sender:self.selectedItem];
+        selectedPresentation.speakerName = responsePresentation.speakerName;
+        selectedPresentation.speakerURL = responsePresentation.speakerURL;
+        selectedPresentation.categoryName = responsePresentation.categoryName;
+        selectedPresentation.publishDate = responsePresentation.publishDate;
+        
+        PresentationCell *cell = (PresentationCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        if (cell != nil) {
+            cell.overlayView.hidden = YES;
+        }
+        
+        if ([selectedIdentifier isEqualToString:responsePresentation.identifier]) {
+            [self performSegueWithIdentifier:@"showDetail" sender:self.selectedItem];
+        }
     }];
     [dataTask resume];
     
