@@ -21,6 +21,7 @@
 		C61FB7161CF4F856004CE991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61FB7141CF4F856004CE991 /* LaunchScreen.storyboard */; };
 		C61FB71F1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */; };
 		C67836451D070B3600BC47DA /* HairlineBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67836441D070B3600BC47DA /* HairlineBorderView.m */; };
+		C6CEEEC61DD1458E00E78852 /* PresentationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CEEEC51DD1458E00E78852 /* PresentationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakderDeckResponseSerialization.m; sourceTree = "<group>"; };
 		C67836431D070B3600BC47DA /* HairlineBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HairlineBorderView.h; sourceTree = "<group>"; };
 		C67836441D070B3600BC47DA /* HairlineBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HairlineBorderView.m; sourceTree = "<group>"; };
+		C6CEEEC41DD1458E00E78852 /* PresentationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationCell.h; sourceTree = "<group>"; };
+		C6CEEEC51DD1458E00E78852 /* PresentationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationCell.m; sourceTree = "<group>"; };
 		C74F326D975829576ABE13E0 /* Pods-Deck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deck/Pods-Deck.debug.xcconfig"; sourceTree = "<group>"; };
 		F5649081259FDE2FFDE80910 /* Pods-Deck-DeckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deck-DeckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Deck-DeckTests/Pods-Deck-DeckTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,21 +142,23 @@
 			children = (
 				C61FB7061CF4F856004CE991 /* AppDelegate.h */,
 				C61FB7071CF4F856004CE991 /* AppDelegate.m */,
-				C61FB7091CF4F856004CE991 /* MasterViewController.h */,
-				C61FB70A1CF4F856004CE991 /* MasterViewController.m */,
+				C61FB7121CF4F856004CE991 /* Assets.xcassets */,
 				C61FB70C1CF4F856004CE991 /* DetailViewController.h */,
 				C61FB70D1CF4F856004CE991 /* DetailViewController.m */,
-				C61FB70F1CF4F856004CE991 /* Main.storyboard */,
-				C61FB7121CF4F856004CE991 /* Assets.xcassets */,
-				C61FB7141CF4F856004CE991 /* LaunchScreen.storyboard */,
+				C67836431D070B3600BC47DA /* HairlineBorderView.h */,
+				C67836441D070B3600BC47DA /* HairlineBorderView.m */,
 				C61FB7171CF4F856004CE991 /* Info.plist */,
-				C61FB7031CF4F856004CE991 /* Supporting Files */,
+				C61FB7141CF4F856004CE991 /* LaunchScreen.storyboard */,
+				C61FB70F1CF4F856004CE991 /* Main.storyboard */,
+				C61FB7091CF4F856004CE991 /* MasterViewController.h */,
+				C61FB70A1CF4F856004CE991 /* MasterViewController.m */,
+				C6CEEEC41DD1458E00E78852 /* PresentationCell.h */,
+				C6CEEEC51DD1458E00E78852 /* PresentationCell.m */,
 				C61FB71D1CF5015B004CE991 /* SpeakderDeckResponseSerialization.h */,
 				C61FB71E1CF5015B004CE991 /* SpeakderDeckResponseSerialization.m */,
 				C61469E41CFDA0A9001ABDFF /* SpeakerDeckPresentation.h */,
 				C61469E51CFDA0A9001ABDFF /* SpeakerDeckPresentation.m */,
-				C67836431D070B3600BC47DA /* HairlineBorderView.h */,
-				C67836441D070B3600BC47DA /* HairlineBorderView.m */,
+				C61FB7031CF4F856004CE991 /* Supporting Files */,
 			);
 			path = Deck;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61FB7081CF4F856004CE991 /* AppDelegate.m in Sources */,
+				C6CEEEC61DD1458E00E78852 /* PresentationCell.m in Sources */,
 				C61FB70B1CF4F856004CE991 /* MasterViewController.m in Sources */,
 				C61FB7051CF4F856004CE991 /* main.m in Sources */,
 				C61FB70E1CF4F856004CE991 /* DetailViewController.m in Sources */,

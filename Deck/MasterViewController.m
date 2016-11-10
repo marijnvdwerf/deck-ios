@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "PresentationCell.h"
 #import <AFNetworking.h>
 #import "SpeakderDeckResponseSerialization.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -88,44 +89,41 @@ float _gutter = 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    PresentationCell *cell = (PresentationCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     if([indexPath isEqual:self.selectedItem]) {
-        [cell viewWithTag:3].backgroundColor = [UIColor redColor];
+        cell.overlayView.hidden = NO;
     } else {
-        [cell viewWithTag:3].backgroundColor = [UIColor clearColor];
+        cell.overlayView.hidden = YES;
     }
 
     SpeakerDeckPresentation *presentation = self.objects[indexPath.row];
     
-    UIImageView *imageView = ((UIImageView *)[cell viewWithTag:2]);
+    UIImageView *imageView = cell.imageView;
     [imageView sd_setImageWithURL:[presentation thumbnailForSlide:0]];
-    ((UITextView *)[cell viewWithTag:1]).text = presentation.title;
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // Remove selection from previous cell
-    if (self.selectedItem != nil) {
-        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:self.selectedItem];
-        if (cell != nil) {
-            [cell viewWithTag:3].backgroundColor = [UIColor clearColor];
-        }
-    }
-    
-    self.selectedItem = indexPath;
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    if (cell == nil) {
-        NSLog(@"Cell was nil");
-    } else {
-        [cell viewWithTag:3].backgroundColor = [UIColor redColor];
-    }
-    
     SpeakerDeckPresentation *presentation = self.objects[indexPath.item];
     if (presentation.aspectRatio != nil) {
-        [self performSegueWithIdentifier:@"showDetail" sender:self.selectedItem];
+        [self performSegueWithIdentifier:@"showDetail" sender:indexPath];
     }
-    
+
+    // Remove selection from previous cell
+    if (self.selectedItem != nil) {
+        PresentationCell *cell = (PresentationCell *)[collectionView cellForItemAtIndexPath:self.selectedItem];
+        if (cell != nil) {
+            cell.overlayView.hidden = YES;
+        }
+    }
+
+    self.selectedItem = indexPath;
+    PresentationCell *cell = (PresentationCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (cell != nil) {
+        cell.overlayView.hidden = NO;
+    }
+
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
