@@ -22,6 +22,7 @@
 @implementation MasterViewController
 
 float _columnWidth;
+float _rowHeight;
 float _gutter = 2;
 
 - (void)viewDidLoad {
@@ -55,6 +56,10 @@ float _gutter = 2;
     
     float screenWidth = [self.view bounds].size.width;
     _columnWidth = (screenWidth - _gutter) / 2;
+    _columnWidth = floorf(_columnWidth);
+    _columnWidth = MIN(_columnWidth, 210);
+    
+    _rowHeight = floorf(_columnWidth / 4 * 3);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -150,7 +155,7 @@ float _gutter = 2;
 #pragma mark - Collection View Flow Layout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(_columnWidth, _columnWidth / 4 * 3);
+    return CGSizeMake(_columnWidth, _rowHeight);
 }
 
 @end
